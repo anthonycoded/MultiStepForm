@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+
+import MultiStepForm from "./MultiStepForm"
 
 const LandingPage = () => {
+  const [open, setOpen] = useState(false);
+  
   return (
     <div className=" flex flex-col justify-center p-8 items-center">
       <p className="font-bold text-5xl text-green-500 mb-8">Hello World</p>
       <div className=" flex flex-col items-center">
         <p className="text-2xl w-full text-justified mb-12">
-          This is a Web Development template. It utilizes these technologies for
-          rapid web development.
+          This is a Web Development template for a multi step form
         </p>
         <ul className="flex flex-col items-center bg-gray-300 rounded-2xl p-4">
           <li className="flex items-center h-24 ">
@@ -24,14 +27,13 @@ const LandingPage = () => {
             </p>
           </li>
           <li className="flex items-center h-24 ">
-            <p>
-              <span className="text-2xl text-green-600">TailwindCSS</span> for
-              super awesome custom css to make everything look exactly how you
-              want
-            </p>
+            <a className="bg-green-500 rounded-full h-12 w-24 flex items-center justify-center" onClick={() => setOpen(true)}>
+              open form
+            </a>
           </li>
         </ul>
       </div>
+      <MultiStepForm open={open} setOpen={setOpen}></MultiStepForm>
     </div>
   );
 };
